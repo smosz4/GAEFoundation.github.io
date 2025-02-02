@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Global Action and Empowerment Foundation - Fostering sustainable environments for better lives through education, health, and community empowerment."
+    />
+    <meta
+      name="keywords"
+      content="non-profit, education, health, community empowerment, sustainability"
+    />
+    <title>Global Action and Empowerment Foundation</title>
+    <style>
+      /* Base Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: #007bff;
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        margin: 10px 0 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        background: #333;
+        padding: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 1.1rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #007bff;
+        transform: translateY(-3px);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .section {
+        margin-bottom: 80px;
+      }
+
+      .section h2 {
+        color: #007bff;
+        margin-bottom: 30px;
+        font-size: 2.2rem;
+        text-align: center;
+      }
+
+      .section p {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 30px;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .impact-stories,
+      .programs-grid,
+      .partners-grid,
+      .events-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .impact-story,
+      .program,
+      .partner,
+      .event {
+        flex: 1 1 calc(33.333% - 60px);
+        background: #f9f9f9;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .impact-story:hover,
+      .program:hover,
+      .partner:hover,
+      .event:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .impact-story p {
+        font-style: italic;
+        color: #555;
+      }
+
+      .values {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .value {
+        flex: 1 1 calc(25% - 40px);
+        text-align: center;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .value:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 60px;
+      }
+
+      footer a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin: 20px 0;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: #0056b3;
+        transform: translateY(-3px);
+      }
+
+      .vision-mission {
+        background: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+      }
+
+      .vision-mission h3 {
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .back-to-top {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #007bff;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .back-to-top:hover {
+        background: #0056b3;
+        transform: translateY(-3px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .impact-story,
+        .program,
+        .partner,
+        .event {
+          flex: 1 1 calc(50% - 30px);
+        }
+
+        .value {
+          flex: 1 1 calc(50% - 20px);
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 2rem;
+        }
+
+        header p {
+          font-size: 1rem;
+        }
+
+        nav a {
+          margin: 0 10px;
+          font-size: 1rem;
+        }
+
+        .impact-story,
+        .program,
+        .partner,
+        .event {
+          flex: 1 1 100%;
+        }
+
+        .value {
+          flex: 1 1 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Global Action and Empowerment Foundation</h1>
+      <p>
+        Join us in fostering a sustainable environment for all individuals to
+        have a better life.
+      </p>
+    </header>
+    <nav aria-label="Main Navigation">
+      <button onclick="location.href='#about'">Us</button>
+      <button onclick="location.href='#mission'">Mission</button>
+      <button onclick="location.href='#impact'">Impact Stories</button>
+      <button onclick="location.href='#events'">Events</button>
+    </nav>
+
+    <style>
+      nav {
+        display: flex;
+        justify-content: center;
+        background: #333;
+        padding: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      nav button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        margin: 0 10px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+        border-radius: 5px;
+      }
+      nav button:hover {
+        background: #0056b3;
+        transform: translateY(-3px);
+      }
+    </style>
+
+    <div class="container">
+      <section id="about" class="section">
+        <h2>About Us</h2>
+        <div class="vision-mission">
+          <p>
+            The Global Action and Empowerment Foundation is a non-profit
+            organization dedicated to creating sustainable change through
+            education, health, and community empowerment. Founded in 2023, we
+            work tirelessly to ensure that every individual has the opportunity
+            to thrive.
+          </p>
+        </div>
+      </section>
+      <section id="mission" class="section">
+        <h2>Our Mission</h2>
+        <div class="vision-mission">
+          <p>
+            To empower communities globally through holistic education,
+            vocational training, health services, and community engagement,
+            enabling individuals to break the cycle of poverty and achieve their
+            fullest potential.
+          </p>
+        </div>
+      </section>
+      <section id="vision" class="section">
+        <h2>Our Vision</h2>
+        <div class="vision-mission">
+          <p>
+            A community where every individual has access to quality education,
+            health services, and opportunities for personal and community
+            development, fostering sustainable growth and resilience.
+          </p>
+        </div>
+      </section>
+      <section id="programs" class="section">
+        <h2>Our Programs</h2>
+        <div class="programs-grid">
+          <div class="program">
+            <h3>Education for All</h3>
+            <p>
+              Providing access to quality education for children and adults in
+              underserved communities.
+            </p>
+          </div>
+          <div class="program">
+            <h3>Health and Wellness</h3>
+            <p>
+              Offering health services, awareness campaigns, and medical support
+              to improve community health.
+            </p>
+          </div>
+          <div class="program">
+            <h3>Community Empowerment</h3>
+            <p>
+              Empowering individuals through vocational training and community
+              development programs.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="impact" class="section">
+        <h2>Impact Stories</h2>
+        <div class="impact-stories">
+          <div class="impact-story">
+            <p>
+              "I'm beyond grateful for the support provided by this
+              organization. Their dedication and generosity have made a
+              significant difference in my life. Thank you for everything that
+              you do."
+            </p>
+            <strong>— Jacob E.</strong>
+          </div>
+          <div class="impact-story">
+            <p>
+              "The group’s programs empowered me to further help my community. I
+              appreciate their unwavering commitment to promoting a more
+              inclusive world."
+            </p>
+            <strong>— Esther R.</strong>
+          </div>
+        </div>
+      </section>
+      <section id="values" class="section">
+        <h2>Core Values</h2>
+        <div class="values">
+          <div class="value">Empowerment</div>
+          <div class="value">Inclusivity</div>
+          <div class="value">Collaboration</div>
+          <div class="value">Integrity</div>
+          <div class="value">Sustainability</div>
+          <div class="value">Innovation</div>
+          <div class="value">Compassion</div>
+          <div class="value">Excellence</div>
+          <div class="value">Global Citizenship</div>
+          <div class="value">Community-Centered Approach</div>
+        </div>
+      </section>
+      <section id="partners" class="section">
+        <h2>Our Partners</h2>
+        <div class="partners-grid">
+          <div class="partner">
+            <h3>Partner 1</h3>
+            <p>Description of the partnership and its impact.</p>
+          </div>
+          <div class="partner">
+            <h3>Partner 2</h3>
+            <p>Description of the partnership and its impact.</p>
+          </div>
+          <div class="partner">
+            <h3>Partner 3</h3>
+            <p>Description of the partnership and its impact.</p>
+          </div>
+        </div>
+      </section>
+      <section id="events" class="section">
+        <h2>Upcoming Events</h2>
+        <div class="events-grid">
+          <div class="event">
+            <h3>Community Health Camp</h3>
+            <p>Date: October 15, 2023</p>
+            <p>Location: Kampala, Uganda</p>
+          </div>
+          <div class="event">
+            <h3>Education Awareness Day</h3>
+            <p>Date: November 10, 2023</p>
+            <p>Location: Nairobi, Kenya</p>
+          </div>
+          <div class="event">
+            <h3>Empowerment Workshop</h3>
+            <p>Date: December 5, 2023</p>
+            <p>Location: Dar es Salaam, Tanzania</p>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p><strong>Address:</strong> Kampala, Uganda</p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:globalaaefoundation@gmail.com"
+            >globalaaefoundation@gmail.com</a
+          >
+        </p>
+        <p>
+          <strong>Phone:</strong>
+          <a href="tel:+256705611835">0705611835</a>
+        </p>
+      </section>
+      <section id="cta" class="section">
+        <h2>Get Involved</h2>
+        <p>
+          Join us in our mission to create a better world. Together, we can make
+          a lasting impact.
+        </p>
+        <a href="#contact" class="cta-button">Contact Us</a>
+        <a
+          href="https://paystack.com/pay/sk_test_e6b25a7735b5ca53702b345d67887c89ccc3f586"
+          class="cta-button"
+          target="_blank"
+          >Donate Now</a
+        >
+      </section>
+      <section id="cta" class="section">
+        <h2>Get Involved</h2>
+        <p>
+          Join us in our mission to create a better world. Together, we can make
+          a lasting impact.
+        </p>
+        <a href="#contact" class="cta-button">Contact Us</a>
+      </section>
+    </div>
+    <footer>
+      <p>
+        &copy; 2023 Global Action and Empowerment Foundation. All rights
+        reserved.
+      </p>
+    </footer>
+    <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to Top"
+      >↑</a
+    >
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll("nav a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // Show/hide back-to-top button
+      window.addEventListener("scroll", () => {
+        const backToTopButton = document.getElementById("back-to-top");
+        backToTopButton.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+    </script>
+    <script
+      src="//code.tidio.co/vhtn3yjkcjnvdfovsngzixrrnijjmr2t.js"
+      async
+    ></script>
+  </body>
+</html>
